@@ -1,0 +1,235 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #13001a;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  align-items: center;
+  background-color: rgba(19, 0, 26, 0.95);
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(156, 39, 176, 0.3);
+}
+
+.logo-svg {
+  filter: drop-shadow(0 0 10px rgba(156, 39, 176, 0.5));
+}
+
+.logo-svg path {
+  animation: pulse 2s infinite;
+}
+
+/* Hero section styles */
+.hero {
+  background: linear-gradient(rgba(19, 0, 26, 0.8), rgba(19, 0, 26, 0.8)), 
+              url('https://images.unsplash.com/photo-1682685797989-c08f0f653a9c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.hero-content h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
+}
+
+#start-game {
+  background-color: #9C27B0;
+  color: #fff;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+#start-game:hover {
+  background-color: #7B1FA2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+}
+
+/* Update fullscreen button styles */
+.fullscreen-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: color 0.3s ease;
+  position: relative;
+  right: auto;
+}
+
+.fullscreen-btn:hover {
+  color: #9C27B0;
+}
+
+.fullscreen-btn svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.5));
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(19, 0, 26, 0.95);
+  padding-top: 100px;
+  transition: left 0.3s ease;
+  z-index: 99;
+  box-shadow: 2px 0 10px rgba(156, 39, 176, 0.3);
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.sidebar-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-nav a:hover {
+  color: #9C27B0;
+}
+
+/* Update header for menu button */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(156, 39, 176, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.5));
+  }
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  header {
+    padding: 0.8rem;
+  }
+
+  .logo-svg {
+    width: 150px;
+  }
+
+  .fullscreen-btn {
+    margin-right: 5px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 6px;
+  }
+
+  .hero-content h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  #start-game {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .sidebar {
+    width: 200px;
+    left: -200px;
+  }
+
+  .buttons-container {
+    margin: 120px auto 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.6rem;
+  }
+
+  .logo-svg {
+    width: 120px;
+  }
+
+  .fullscreen-btn {
+    margin-right: 3px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 4px;
+  }
+}
+
+.credits {
+  color: #9C27B0;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(156, 39, 176, 0.3);
+  margin-top: 10px;
+}
