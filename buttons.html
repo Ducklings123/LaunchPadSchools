@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchPad - Games & Apps</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons.css">
+</head>
+<body>
+  <header>
+    <button class="menu-toggle">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </button>
+    <div class="logo">
+      <svg class="logo-svg" viewBox="0 0 200 50" width="200" height="50">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <path d="M10,25 L30,10 L30,40 Z" fill="#9C27B0" filter="url(#glow)"/>
+        <text x="40" y="35" fill="#fff" font-size="24" font-weight="bold" filter="url(#glow)">LaunchPad</text>
+      </svg>
+    </div>
+    <button class="fullscreen-btn">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+      </svg>
+    </button>
+  </header>
+
+  <nav class="sidebar">
+    <ul class="sidebar-nav">
+      <li>
+        <a href="buttons.html?section=games">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+          </svg>
+          Games
+        </a>
+      </li>
+      <li>
+        <a href="buttons.html?section=apps">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+          </svg>
+          Apps
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="buttons-container">
+    <h2 id="section-title">Choose Your Game</h2>
+    <div class="button-grid" id="content-grid">
+      <!-- Content will be populated by JavaScript -->
+    </div>
+    <a href="index.html" class="back-button">Back to Home</a>
+  </div>
+
+  <script>
+    // Content management
+    const gamesContent = [
+      { href: "games/draw-climber.html", text: "Draw Climber" },
+      { href: "games/1v1-lol.html", text: "1v1.lol" },
+      { href: "games/granny.html", text: "Granny" },
+      { href: "games/ovo.html", text: "OvO" },
+      { href: "games/basket-random.html", text: "Basket Random" },
+      { href: "games/bighole.html", text: "BigHole.io" },
+      { href: "games/slow-roads.html", text: "Slow Roads" },
+      { href: "https://krunker.io/", text: "Krunker.io" },
+      { href: "https://diep.io/", text: "Diep.io" },
+      { href: "https://zombsroyale.io/", text: "ZombsRoyale.io" },
+      { href: "https://littlealchemy2.com/", text: "Little Alchemy 2" },
+      { href: "https://deeeep.io/", text: "Deeeep.io" },
+      { href: "https://shellshock.io/", text: "Shell Shockers" },
+      { href: "https://starve.io/", text: "Starve.io" },
+      { href: "https://lordz.io/", text: "Lordz.io" },
+      { href: "https://ev.io/", text: "Ev.io" },
+      { href: "https://venge.io/", text: "Venge.io" },
+      { href: "https://brutal.io/", text: "Brutal.io" },
+      { href: "https://flyordie.io/", text: "FlyOrDie.io" },
+      { href: "https://snowball.io/", text: "Snowball.io" },
+      { href: "https://taming.io/", text: "Taming.io" },
+      { href: "https://minigiants.io/", text: "Minigiants.io" },
+      { href: "https://warscrap.io/", text: "Warscrap.io" },
+      { href: "https://cubes2048.io/", text: "Cubes2048.io" },
+      { href: "https://madalinstuntcars.com/", text: "Madalin Stunt Cars 2" },
+      { href: "https://madalinstuntcars3.io/", text: "Madalin Stunt Cars 3" },
+      { href: "https://ducklife4.com/", text: "Duck Life 4" },
+      { href: "https://www.fireboyandwatergirl2.com/", text: "Fireboy and Watergirl" },
+      { href: "https://2048game.com/", text: "2048" },
+      { href: "https://www.totaljerkface.com/happy_wheels.tjf", text: "Happy Wheels" },
+      { href: "https://worldsbiggestpacman.com/", text: "World's Biggest Pac-Man" },
+      { href: "https://slither.io/", text: "Slither.io" },
+      { href: "https://agar.io/", text: "Agar.io" },
+      { href: "https://spinz.io/", text: "Spinz.io" },
+      { href: "https://wings.io/", text: "Wings.io" },
+      { href: "https://www.8ballpool.com/", text: "8 Ball Pool" },
+      { href: "https://flappybird.io/", text: "Flappy Bird" },
+      { href: "https://snake.is/", text: "Snake.is" },
+      { href: "https://sloperun.co/", text: "Slope Run Game" },
+      { href: "https://www.crossyroad.com/", text: "Crossy Road" },
+      { href: "https://basketballstars.io/", text: "Basketball Stars" },
+      { href: "https://drifthunters.io/", text: "Drift Hunters" },
+      { href: "https://www.shortlifegame.com/", text: "Short Life" },
+      { href: "https://racecar.io/", text: "Racecar.io" },
+      { href: "https://dashcraft.io/", text: "DashCraft" },
+      { href: "https://bombit7.com/", text: "Bomb It 7" }
+    ];
+
+    const appsContent = [
+      { href: "#", text: "Calculator", onclick: "showCalculator(event)" }
+    ];
+
+    // Get the section from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const section = urlParams.get('section') || 'games';
+
+    // Update content based on section
+    const sectionTitle = document.getElementById('section-title');
+    const contentGrid = document.getElementById('content-grid');
+
+    if (section === 'apps') {
+      sectionTitle.textContent = 'Choose Your App';
+      populateGrid(appsContent);
+    } else {
+      sectionTitle.textContent = 'Choose Your Game';
+      populateGrid(gamesContent);
+    }
+
+    function populateGrid(content) {
+      contentGrid.innerHTML = content.map(item => 
+        `<a href="${item.href}" class="button" ${item.onclick ? `onclick="${item.onclick}"` : ''}>${item.text}</a>`
+      ).join('');
+    }
+
+    function showCalculator(event) {
+      event.preventDefault();
+      const calculatorHtml = `
+        <div class="calculator-container" style="max-width: 800px; margin: 20px auto; padding: 20px;">
+          <div id="inch-calculator-icw" data-ct="calculator" data-cw="100%" data-ch="650" data-cv="MTE3NDA1ODA0NjA=">
+            <div id="inch-calculator-icwh">Calculator</div>
+            <div id="inch-calculator-icwf">
+              <a id="inch-calculator-icwi" href="https://www.inchcalculator.com/calculator/" target="_blank">
+                <img id="inch-calculator-icwl" src="https://cdn.inchcalculator.com/e/inch-calculator-logo-tiny.png" alt="Inch Calculator Logo" width="40" height="49">
+                <span id="inch-calculator-icwb">Inch Calculator</span>
+              </a>
+            </div>
+          </div>
+        </div>`;
+      
+      contentGrid.innerHTML = calculatorHtml;
+      
+      const script = document.createElement('script');
+      script.src = 'https://cdn.inchcalculator.com/e/widgets.min.js';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
